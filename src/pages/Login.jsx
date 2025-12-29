@@ -9,7 +9,8 @@ function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
     const user = users.find(
       (u) => u.username === username && u.password === password
     );
@@ -21,27 +22,35 @@ function Login() {
     }
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleLogin(e);
+    }
+  };
+
   return (
     <div className="login-container">
       <h2>Teacher Login</h2>
-      <div className="login-form">
+      <form className="login-form" onSubmit={handleLogin}>
         <input
           type="text"
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          onKeyPress={handleKeyPress}
         />
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          onKeyPress={handleKeyPress}
         />
-        <button className="login-btn" onClick={handleLogin}>
+        <button type="submit" className="login-btn">
           Login
         </button>
         {error && <p className="error">{error}</p>}
-      </div>
+      </form>
     </div>
   );
 }

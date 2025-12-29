@@ -5,7 +5,9 @@ const students = [
     { id: 4, name: "Mohamed Lekssays" },
     { id: 5, name: "Rachid Benslimane" },
     { id: 6, name: "Khadija Mouline" },
-    { id: 7, name: "Amine Idrissi" }
+    { id: 7, name: "Amine Idrissi" },
+    { id: 8, name: "Salma Lahbabi" },
+    { id: 9, name: "Omar Elkhadir" }
   ];
   
   export default students;
