@@ -1,5 +1,6 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
   }
   
   .login-container {
@@ -8,31 +9,36 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: beige;
-    color: rgb(0, 0, 0);
   }
   
   h2 {
     margin-bottom: 20px;
-    font-size: 32px;
+    font-size: 28px;
+    color: #333;
   }
   
   .login-form {
     display: flex;
     flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: #fff;
     padding: 30px;
     border-radius: 10px;
     width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
   
   .login-form input {
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 5px;
-    border: none;
+    border: 1px solid #ccc;
     outline: none;
     font-size: 16px;
+    transition: border 0.2s;
+  }
+  
+  .login-form input:focus {
+    border-color: #ff9800;
   }
   
   .login-btn {
@@ -56,5 +62,6 @@ body {
     color: #ff4d4f;
     font-weight: bold;
     text-align: center;
+    font-size: 14px;
   }
   

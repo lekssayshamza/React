@@ -1,10 +1,14 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import "../styles/Home.css";
 import students from "../data/students";
 
 function Home() {
-  const [attendance, setAttendance] = useState({}); // {id: "present"/"absent"/"late"}
-  const [filter, setFilter] = useState("all"); // all / present / absent / late
+  const location = useLocation();
+  const username = location.state?.username || "Teacher";
+
+  const [attendance, setAttendance] = useState({});
+  const [filter, setFilter] = useState("all");
 
   const markAttendance = (id, status) => {
     setAttendance({ ...attendance, [id]: status });
@@ -17,7 +21,7 @@ function Home() {
 
   return (
     <div className="home-container">
-      <h2>Students Attendance</h2>
+      <h2>Welcome, {username}</h2>
 
       <div className="students-list">
         {filteredStudents.map((student) => (

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Login.css";
+import users from "../data/users";
 
 function Login() {
   const navigate = useNavigate();
@@ -9,8 +10,12 @@ function Login() {
   const [error, setError] = useState("");
 
   const handleLogin = () => {
-    if (username === "teacher" && password === "1234") {
-      navigate("/home");
+    const user = users.find(
+      (u) => u.username === username && u.password === password
+    );
+
+    if (user) {
+      navigate("/home", { state: { username: user.username } });
     } else {
       setError("Invalid username or password");
     }
